@@ -1,4 +1,5 @@
 import React from "react";
+import { Link} from 'react-router-dom';
 
 const Header = () => {
   const filterImage = (e) => {
@@ -15,6 +16,18 @@ const Header = () => {
         <span className="text-2xl max-lg:text-lg font-bold font-sans text-blue-500 ">
           Rishi TextUtils
         </span>
+        <ul className=" px-10 flex gap-5 text-blue-500 font-serif font-bold text-lg ">
+          <Link to="/" className="hover:text-blue-800">
+            Home
+          </Link>
+
+          <Link to="/about" className="hover:text-blue-800">
+            About
+          </Link>
+          <Link to="/contact" className="hover:text-blue-800">
+            Contact
+          </Link>
+        </ul>
       </div>
 
       <div className="flex gap-3 max-lg:flex-col my-2 mx-2">
@@ -23,15 +36,9 @@ const Header = () => {
           className="py-1 px-2 rounded-lg max-w-40"
           onChange={(e) => filterImage(e)}
         ></input>
-        <button class="blob-btn">
+        <div className="bg-blue-500 text-center p-2 rounded-lg hover:bg-blue-800">
           Search
-          <span class="blob-btn__inner">
-            <span class="blob-btn__blobs">
-              
-            </span>
-          </span>
-        </button>
-
+        </div>
       </div>
     </div>
   );

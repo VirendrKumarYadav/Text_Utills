@@ -15,3 +15,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+body {
+  font-family: 'Roboto', sans-serif; /* Add a suitable font for better aesthetics */
+}

@@ -1,12 +1,16 @@
 import "./App.css";
 import { createContext, useState } from "react";
 import Home from "./Compo/Home";
+import About from "./Compo/About";
+import Contect from "./Compo/Contect";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "./Compo/Footer";
 import Header from "./Compo/Header";
+import {createBrowserRouter,RouterProvider } from 'react-router-dom';
 export const BoardDetails = createContext();
 export const SetBoardDetails = createContext();
+
 
 const TYPE = {
   UPPER: "uppercase",
@@ -51,6 +55,41 @@ function App() {
   const [noOfChar, setNoOfChar] = useState(0);
   const [noOfWord, setNoOfWord] = useState(0);
 
+  const route = createBrowserRouter([
+    {
+      path: "/",
+      element: (
+        <div>
+          <Header />
+          <Home />
+          <Footer />
+        </div>
+      ),
+    },
+    {
+      path: "/about",
+      element: (
+        <div>
+          <Header />
+          <About />
+          <Footer />
+        </div>
+      ),
+    },
+    {
+      path: "/contact",
+      element: (
+        <div>
+          <Header />
+          <Contect />
+          <Footer />
+        </div>
+      ),
+    },
+  ]);
+
+
+
   const reducer = (state, action) => {
     switch (action.type) {
       case TYPE.UPPER:
@@ -81,9 +120,10 @@ function App() {
 
   return (
     <BoardDetails.Provider value={[TYPE, reducer, noOfChar, noOfWord]}>
-      <Header />
-      <Home />
-      <Footer />
+      <RouterProvider router={route}>
+        
+       
+      </RouterProvider>
       <ToastContainer />
     </BoardDetails.Provider>
   );
